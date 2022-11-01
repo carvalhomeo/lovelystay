@@ -22,6 +22,19 @@ export const Content = styled.div`
   height: 80%;
   overflow: auto;
   scroll-behavior: smooth;
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    background-color: #fff;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #ac47cc;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #5e1e73;
+  }
 `;
 
 export const List = styled.div`
