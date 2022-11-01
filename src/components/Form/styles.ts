@@ -1,0 +1,10 @@
+import styled from "styled-components";
+
+export const StyledForm = styled.form`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 50%;
+  height: 20%;
+`;
