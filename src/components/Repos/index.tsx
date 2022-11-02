@@ -1,9 +1,19 @@
 import React, { useMemo, useState } from "react";
 import { IconButton } from "../IconButton";
-import { Actions, Container, Content, Header, List } from "./styles";
+import {
+  Actions,
+  Container,
+  Content,
+  Header,
+  List,
+  PlaceHolder,
+} from "./styles";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useReposQuery } from "../../hooks/repos";
 import { RepoDetails } from "../RepoDetails";
+import { useAtom } from "jotai";
+import { totalRepositoriesAtom } from "../../context";
+import { Spinner } from "../Spinner";
 
 interface ReposProps {
   username: string | string[] | undefined;
@@ -18,9 +28,18 @@ export const Repos = ({ username }: ReposProps) => {
     isPreviousData,
   } = useReposQuery(username as string, page);
 
+  const [totalRepositories] = useAtom(totalRepositoriesAtom);
+
   const hasMore = useMemo(() => {
-    return page < Math.round(68 / 10);
-  }, [page]);
+    return page < totalRepositories / 10;
+  }, [page, totalRepositories]);
+
+  if (isLoading)
+    return (
+      <PlaceHolder>
+        <Spinner />
+      </PlaceHolder>
+    );
 
   return (
     <Container>
@@ -28,16 +47,11 @@ export const Repos = ({ username }: ReposProps) => {
         <h1>Repositories</h1>
       </Header>
       <Content>
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : (
-          <List>
-            {repos?.map((repo) => (
-              <RepoDetails key={repo.id} repo={repo} />
-            ))}
-          </List>
-        )}
-        {isFetching ? <span> Loading...</span> : null}{" "}
+        <List>
+          {repos?.map((repo) => (
+            <RepoDetails key={repo.id} repo={repo} />
+          ))}
+        </List>
       </Content>
       <Actions>
         <IconButton

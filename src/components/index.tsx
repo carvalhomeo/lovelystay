@@ -7,6 +7,7 @@ import { Repos } from "./Repos";
 import { Toaster } from "./Toaster";
 import { AvatarImage } from "./AvatarImage";
 import { Chip } from "./Chip";
+import { Spinner } from "./Spinner";
 
 export {
   Button,
@@ -18,4 +19,5 @@ export {
   Toaster,
   AvatarImage,
   Chip,
+  Spinner,
 };

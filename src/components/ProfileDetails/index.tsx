@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useUserQuery } from "../../hooks/users";
-import { Container } from "./styles";
+import { Container, PlaceHolder } from "./styles";
 import { AvatarImage } from "../AvatarImage";
 import { Chip } from "../Chip";
 import { IoMdPeople } from "react-icons/io";
-
+import { useAtom } from "jotai";
+import { totalRepositoriesAtom } from "../../context";
+import { Spinner } from "../Spinner";
 interface ProfileDetailsProps {
   username: string | string[] | undefined;
 }
@@ -12,9 +14,18 @@ interface ProfileDetailsProps {
 export const ProfileDetails = ({ username }: ProfileDetailsProps) => {
   const { data: user, isLoading } = useUserQuery(username, !!username);
 
-  useEffect(() => {}, []);
+  const [, setTotalRepositories] = useAtom(totalRepositoriesAtom);
 
-  if (isLoading) return <div>Loading...</div>;
+  useEffect(() => {
+    user && setTotalRepositories(user?.public_repos);
+  }, [setTotalRepositories, user]);
+
+  if (isLoading)
+    return (
+      <PlaceHolder>
+        <Spinner />
+      </PlaceHolder>
+    );
 
   return (
     <Container>

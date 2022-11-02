@@ -1,7 +1,16 @@
-import { Container, Title } from "../styles/pages/home";
+import { Container, Favorites, Title } from "../styles/pages/home";
 import { SearchInput, Button, Form } from "../components";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
+
+const favorites = [
+  { name: "carvalhomeo" },
+  { name: "tannerlinsley" },
+  { name: "kentcdodds" },
+  { name: "pmndrs" },
+  { name: "theobr" },
+];
 
 export default function Home() {
   const { push } = useRouter();
@@ -22,6 +31,13 @@ export default function Home() {
         />
         <Button type="submit" text="Search" />
       </Form>
+      <Favorites>
+        {favorites.map(({ name }) => (
+          <Link key={name} href={`/profile/${name}`}>
+            {name}
+          </Link>
+        ))}
+      </Favorites>
     </Container>
   );
 }

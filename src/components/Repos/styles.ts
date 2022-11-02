@@ -1,6 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.form`
+export const PlaceHolder = styled.div`
+  // border: solid 2px yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding: 20px;
+  height: 90vh;
+`;
+
+export const Container = styled.div`
   // border: solid 2px yellow;
   display: flex;
   flex-direction: column;

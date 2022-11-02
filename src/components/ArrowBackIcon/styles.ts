@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { IoIosArrowRoundBack } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
-export const ArrowBack = styled(IoIosArrowRoundBack)`
+export const ArrowBack = styled(IoIosArrowBack)`
   fill: #ac47cc;
   cursor: pointer;
   height: 50px;
