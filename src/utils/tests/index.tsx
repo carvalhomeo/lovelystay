@@ -3,7 +3,6 @@ import { rest } from "msw";
 import { render } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { NextRouter } from "next/router";
-import { RouterContext } from "next/dist/shared/lib/router-context";
 
 const reposList = [
   {

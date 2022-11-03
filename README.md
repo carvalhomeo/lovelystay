@@ -11,8 +11,10 @@
 yarn dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 note: if you are having trouble with the requests it might be due to the limit of requests imposed by the github api.
-In that case, you can create a .env.local file in the root directory of the project and add the following environment variable
+In that case, you can create a .env.local file in the root directory of the project and add the following environment variable:
 
 ```
 NEXT_PUBLIC_API_TOKEN=[your_git_hub_token]
@@ -20,8 +22,6 @@ NEXT_PUBLIC_API_TOKEN=[your_git_hub_token]
 
 To generate the token follow the instructions:
 [Creating a personal access token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Run the unit tests
 
