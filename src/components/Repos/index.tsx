@@ -9,11 +9,12 @@ import {
   PlaceHolder,
 } from "./styles";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { useReposQuery } from "../../hooks/repos";
+import { useReposQuery } from "@/hooks/repos";
 import { RepoDetails } from "../RepoDetails";
 import { useAtom } from "jotai";
-import { totalRepositoriesAtom } from "../../context";
+import { totalRepositoriesAtom } from "@/context/repos";
 import { Spinner } from "../Spinner";
+import { Loader } from "../Loader";
 
 interface ReposProps {
   username: string | string[] | undefined;
@@ -24,8 +25,8 @@ export const Repos = ({ username }: ReposProps) => {
   const {
     isLoading,
     data: repos,
-    isFetching,
     isPreviousData,
+    isFetching,
   } = useReposQuery(username as string, page);
 
   const [totalRepositories] = useAtom(totalRepositoriesAtom);
@@ -37,7 +38,7 @@ export const Repos = ({ username }: ReposProps) => {
   if (isLoading)
     return (
       <PlaceHolder>
-        <Spinner />
+        <Spinner data-testid="loading-spinner" />
       </PlaceHolder>
     );
 
@@ -47,12 +48,17 @@ export const Repos = ({ username }: ReposProps) => {
         <h1>Repositories</h1>
       </Header>
       <Content>
-        <List>
+        <List data-testid="repos-list">
           {repos?.map((repo) => (
             <RepoDetails key={repo.id} repo={repo} />
           ))}
         </List>
       </Content>
+      {isFetching && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Loader />
+        </div>
+      )}
       <Actions>
         <IconButton
           type="button"

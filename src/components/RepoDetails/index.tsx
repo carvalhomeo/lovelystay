@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { Repo } from "../../model/repo";
+import { Repo } from "@/model/repo";
 import { Container, Divider } from "./styles";
 
 interface RepoDetailsProps {
@@ -11,11 +11,11 @@ export const RepoDetails = ({ repo }: RepoDetailsProps) => {
   const { name, description, html_url } = repo;
   return (
     <>
-      <Container>
+      <Container data-testid="repo-info">
         <Link href={html_url} target="_blank">
-          <h3>{name}</h3>
+          <h3 data-testid="repo-name">{name}</h3>
         </Link>
-        <div>{description}</div>
+        <div data-testid="repo-description">{description}</div>
       </Container>
       <Divider />
     </>

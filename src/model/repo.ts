@@ -1,12 +1,9 @@
-import { User } from "./user";
-
 export interface Repo {
   id: number;
   node_id: string;
   name: string;
   full_name: string;
   private: boolean;
-  owner: User;
   html_url: string;
   description?: any;
   fork: boolean;
@@ -47,9 +44,9 @@ export interface Repo {
   labels_url: string;
   releases_url: string;
   deployments_url: string;
-  created_at: Date;
-  updated_at: Date;
-  pushed_at: Date;
+  created_at: string;
+  updated_at: string;
+  pushed_at: string;
   git_url: string;
   ssh_url: string;
   clone_url: string;

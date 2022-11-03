@@ -1,4 +1,4 @@
-import React, { ReactNode, InputHTMLAttributes } from "react";
+import React, { InputHTMLAttributes } from "react";
 import { StyledInput } from "./styles";
 
 interface SearchProps extends InputHTMLAttributes<HTMLInputElement> {}

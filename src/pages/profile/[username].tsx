@@ -1,7 +1,9 @@
+import React from "react";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
-import { Container, Content, Header } from "../../styles/pages/profile/profile";
-import { ArrowBackIcon, ProfileDetails, Repos } from "../../components";
+import { Container, Content, Header } from "@/styles/pages/profile";
+import { ArrowBackIcon } from "@/components/ArrowBackIcon";
+import { Repos } from "@/components/Repos";
+import { ProfileDetails } from "@/components/ProfileDetails";
 
 const Profile = () => {
   const {

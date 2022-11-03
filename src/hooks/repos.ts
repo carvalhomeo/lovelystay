@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { Repo } from "../model/repo";
-import api from "../services/axios";
+import api from "@/services/axios";
+import { Repo } from "@/model/repo";
 
 const fetchRepos = async (username: string, page: number) => {
   const { data } = await api.get<Repo[]>(

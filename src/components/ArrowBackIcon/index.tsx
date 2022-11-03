@@ -6,5 +6,5 @@ interface ArrowBackIconProps {
 }
 
 export const ArrowBackIcon = ({ onClick }: ArrowBackIconProps) => {
-  return <ArrowBack onClick={onClick} />;
+  return <ArrowBack data-testid="arrow-back-icon" onClick={onClick} />;
 };

@@ -1,8 +1,10 @@
-import { Container, Favorites, Title } from "../styles/pages/home";
-import { SearchInput, Button, Form } from "../components";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { Button } from "@/components/Button";
+import { Form } from "@/components/Form";
+import { SearchInput } from "@/components/SearchInput";
+import { Title, Favorites, Container } from "@/styles/pages/home";
 
 const favorites = [
   { name: "carvalhomeo" },

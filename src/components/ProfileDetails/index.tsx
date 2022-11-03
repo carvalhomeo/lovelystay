@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { useUserQuery } from "../../hooks/users";
+import { useUserQuery } from "@/hooks/users";
 import { Container, PlaceHolder } from "./styles";
-import { AvatarImage } from "../AvatarImage";
-import { Chip } from "../Chip";
 import { IoMdPeople } from "react-icons/io";
 import { useAtom } from "jotai";
-import { totalRepositoriesAtom } from "../../context";
+import { totalRepositoriesAtom } from "@/context/repos";
+import { Chip } from "../Chip";
+import { AvatarImage } from "../AvatarImage";
 import { Spinner } from "../Spinner";
 interface ProfileDetailsProps {
   username: string | string[] | undefined;
@@ -23,7 +23,7 @@ export const ProfileDetails = ({ username }: ProfileDetailsProps) => {
   if (isLoading)
     return (
       <PlaceHolder>
-        <Spinner />
+        <Spinner data-testid="loading-spinner" />
       </PlaceHolder>
     );
 
