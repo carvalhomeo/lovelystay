@@ -54,7 +54,5 @@ describe("Repos", () => {
     await validateNextElementAndLength("angular.js", 10);
     await validateNextElementAndLength("angular-webpack-demo-project", 10);
     await validateNextElementAndLength("angularjs-greensock-site", 1);
-
-    screen.logTestingPlaygroundURL();
   });
 });

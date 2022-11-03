@@ -9,10 +9,8 @@ describe("ArrowBackIcon", () => {
 
     expect(arrowBackIcon).toBeInTheDocument();
 
-    userEvent.click(arrowBackIcon);
+    await userEvent.click(arrowBackIcon);
 
-    await waitFor(() => {
-      expect(onClick).toHaveBeenCalledTimes(1);
-    });
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

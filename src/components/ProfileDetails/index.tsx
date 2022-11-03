@@ -20,8 +20,6 @@ export const ProfileDetails = ({ username }: ProfileDetailsProps) => {
     user && setTotalRepositories(user?.public_repos);
   }, [setTotalRepositories, user]);
 
-  console.log(isError);
-
   if (isLoading)
     return (
       <PlaceHolder>

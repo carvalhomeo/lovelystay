@@ -18,15 +18,15 @@ export default function Home() {
   const { push } = useRouter();
   const [username, setUsername] = useState<string>("");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    push(`profile/${username}`);
+    await push(`profile/${username}`);
   };
 
   return (
     <Container>
       <Title>Lovely Stay</Title>
-      <Form onSubmit={handleSubmit}>
+      <Form data-testid="form" onSubmit={handleSubmit}>
         <SearchInput
           placeholder="github username"
           onChange={(e) => setUsername(e.target.value)}

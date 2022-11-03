@@ -2,6 +2,8 @@ import { ReactElement, ReactNode } from "react";
 import { rest } from "msw";
 import { render } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { NextRouter } from "next/router";
+import { RouterContext } from "next/dist/shared/lib/router-context";
 
 const reposList = [
   {
@@ -4488,7 +4490,6 @@ export const handlers = [
     const page = Number(req.url.searchParams.get("page")) - 1;
     const perPage = Number(req.url.searchParams.get("per_page"));
 
-    console.log({ page, perPage });
     if (username === "tannerlinsley") {
       return res(
         ctx.status(200),
@@ -4652,4 +4653,32 @@ export function createWrapper() {
       {children}
     </QueryClientProvider>
   );
+}
+
+export function createMockRouter(router: Partial<NextRouter>): NextRouter {
+  return {
+    basePath: "",
+    pathname: "/",
+    route: "/",
+    query: {},
+    asPath: "/",
+    back: jest.fn(),
+    beforePopState: jest.fn(),
+    prefetch: jest.fn(),
+    push: jest.fn(),
+    reload: jest.fn(),
+    replace: jest.fn(),
+    events: {
+      on: jest.fn(),
+      off: jest.fn(),
+      emit: jest.fn(),
+    },
+    isFallback: false,
+    isLocaleDomain: false,
+    isReady: true,
+    defaultLocale: "en",
+    domainLocales: [],
+    isPreview: false,
+    ...router,
+  };
 }
