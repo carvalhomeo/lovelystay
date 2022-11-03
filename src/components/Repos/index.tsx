@@ -27,6 +27,7 @@ export const Repos = ({ username }: ReposProps) => {
     data: repos,
     isPreviousData,
     isFetching,
+    isFetched,
   } = useReposQuery(username as string, page);
 
   const [totalRepositories] = useAtom(totalRepositoriesAtom);
@@ -54,7 +55,7 @@ export const Repos = ({ username }: ReposProps) => {
           ))}
         </List>
       </Content>
-      {isFetching && (
+      {isFetching && isPreviousData && (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Loader />
         </div>
