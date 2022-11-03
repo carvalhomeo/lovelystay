@@ -1,6 +1,6 @@
 import { createMockRouter, renderWithClient } from "@/utils/tests";
-import { screen, waitFor } from "@testing-library/react";
-import Home from ".";
+import { screen } from "@testing-library/react";
+import Home from "./index.page";
 import userEvent from "@testing-library/user-event";
 import { RouterContext } from "next/dist/shared/lib/router-context";
 
