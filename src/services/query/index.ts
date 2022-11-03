@@ -1,5 +1,4 @@
-import { QueryCache, QueryClient } from "@tanstack/react-query";
-import toast from "react-hot-toast";
+import { QueryClient } from "@tanstack/react-query";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -8,11 +7,6 @@ const queryClient = new QueryClient({
       retry: false,
     },
   },
-  queryCache: new QueryCache({
-    onError: (error: any, query) => {
-      toast.error(`Something went wrong: ${error.message}`);
-    },
-  }),
 });
 
 export default queryClient;

@@ -16,6 +16,5 @@ export const Header = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  // border: solid 2px orange;
   height: 100%;
 `;

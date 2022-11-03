@@ -1,7 +1,12 @@
+import { Container } from "@/styles/pages/404";
 import React from "react";
 
 const PageNotFound = () => {
-  return <div>Page Not Found</div>;
+  return (
+    <Container>
+      <h1>Page Not Found</h1>
+    </Container>
+  );
 };
 
 export default PageNotFound;

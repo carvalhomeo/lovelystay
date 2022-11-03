@@ -12,7 +12,7 @@ interface ProfileDetailsProps {
 }
 
 export const ProfileDetails = ({ username }: ProfileDetailsProps) => {
-  const { data: user, isLoading } = useUserQuery(username, !!username);
+  const { data: user, isLoading, isError } = useUserQuery(username, !!username);
 
   const [, setTotalRepositories] = useAtom(totalRepositoriesAtom);
 
@@ -20,12 +20,22 @@ export const ProfileDetails = ({ username }: ProfileDetailsProps) => {
     user && setTotalRepositories(user?.public_repos);
   }, [setTotalRepositories, user]);
 
+  console.log(isError);
+
   if (isLoading)
     return (
       <PlaceHolder>
         <Spinner data-testid="loading-spinner" />
       </PlaceHolder>
     );
+
+  if (isError) {
+    return (
+      <PlaceHolder>
+        <h3>User not found</h3>
+      </PlaceHolder>
+    );
+  }
 
   return (
     <Container>

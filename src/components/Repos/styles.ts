@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const PlaceHolder = styled.div`
-  // border: solid 2px yellow;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +10,6 @@ export const PlaceHolder = styled.div`
 `;
 
 export const Container = styled.div`
-  // border: solid 2px yellow;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -21,14 +19,12 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-  // border: solid 2px green;
   color: #ac47cc;
   font-weight: 700;
   height: 10%;
 `;
 
 export const Content = styled.div`
-  // border: solid 2px red;
   height: 80%;
   overflow: auto;
   scroll-behavior: smooth;
@@ -48,7 +44,6 @@ export const Content = styled.div`
 `;
 
 export const List = styled.div`
-  // border: solid 2px blue;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -57,7 +52,6 @@ export const List = styled.div`
 `;
 
 export const Actions = styled.div`
-  // border: solid 2px orange;
   display: flex;
   justify-content: center;
   align-items: center;

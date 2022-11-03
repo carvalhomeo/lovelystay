@@ -27,7 +27,7 @@ export const Repos = ({ username }: ReposProps) => {
     data: repos,
     isPreviousData,
     isFetching,
-    isFetched,
+    isError,
   } = useReposQuery(username as string, page);
 
   const [totalRepositories] = useAtom(totalRepositoriesAtom);
@@ -42,6 +42,14 @@ export const Repos = ({ username }: ReposProps) => {
         <Spinner data-testid="loading-spinner" />
       </PlaceHolder>
     );
+
+  if (isError) {
+    return (
+      <PlaceHolder>
+        <h3>User not found</h3>
+      </PlaceHolder>
+    );
+  }
 
   return (
     <Container>
